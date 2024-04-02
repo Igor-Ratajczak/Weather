@@ -1,7 +1,8 @@
 {
-    "name": "pwa-test",
-    "short_name": "pwa-test",
-    "theme_color": "#4DBA87",
+    "name": "Weather 2.0",
+    "short_name": "Weather 2.0",
+    "theme_color": "#0000ff",
+    "description":"Aplikacja pogodowa, która ułatwi tobie sprawdzanie prognozy w sposób szybki i poręczny.",
     "icons": [
       {
         "src": "./img/icons/android-chrome-192x192.png",
@@ -32,17 +33,18 @@
         "sizes": "320x320",
         "type": "image/png",
         "form_factor": "wide",
-        "label": "PolGla Widet"
+        "label": "PolGla Widget"
       },
       {
         "src": "./img/icons/icon-320x320.png",
         "sizes": "320x320",
         "type": "image/png",
         "form_factor": "narrow",
-        "label": "PolGla Widet"
+        "label": "PolGla Widget"
       }
     ],
-    "start_url": ".",
+    "id":"weather",
+    "start_url": "./",
     "display": "standalone",
     "background_color": "#000000"
   }
