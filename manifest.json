@@ -44,7 +44,7 @@
       }
     ],
     "id":"weather",
-    "start_url": "./Weather/",
+    "start_url": "/Weather/",
     "display": "standalone",
     "background_color": "#000000"
   }
