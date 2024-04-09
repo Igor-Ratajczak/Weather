@@ -1,0 +1,111 @@
+.theme-light {
+  --color-background-image: #0000ff;
+  --color-text: black;
+  --color-background: #fff;
+  --color-text-hint: black;
+  --color-background-hint: #d5d5d5;
+  --color-background-hint-hover: rgba(26, 26, 26, 0.16);
+  --color-background-button: #80ffcc;
+  --color-background-button-hover: #46c491;
+  color-scheme: light;
+}
+
+// @media (prefers-color-scheme: dark) {
+.theme-dark {
+  --color-text: white;
+  --color-background: rgba(0, 0, 0, 0.71);
+  --color-text-hint: white;
+  --color-background-hint: rgb(0, 0, 0);
+  --color-background-hint-hover: rgb(5 75 180 / 57%);
+  --color-background-button: #013113;
+  --color-background-button-hover: #0b8856;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+body {
+  min-height: 100vh;
+  width: 100vw;
+  color: var(--color-text);
+  line-height: 1.6;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+#background-container {
+  background: -moz-linear-gradient(blue, purple);
+  background: -o-linear-gradient(blue, purple);
+  background: -webkit-gradient(linear, left top, left bottom, from(blue), to(purple));
+  background: linear-gradient(blue, purple);
+  background-size: 400% 400%;
+  -webkit-transition:
+    color 0.5s,
+    background-color 0.5s;
+  -o-transition:
+    color 0.5s,
+    background-color 0.5s;
+  -moz-transition:
+    color 0.5s,
+    background-color 0.5s;
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  -webkit-animation: 5s changedBg infinite alternate;
+  -moz-animation: 5s changedBg infinite alternate;
+  animation: 5s changedBg infinite alternate;
+}
+@-webkit-keyframes changedBg {
+  0% {
+    background-position: 0, 0;
+  }
+  100% {
+    background-position: 100%, 100%;
+  }
+}
+@-moz-keyframes changedBg {
+  0% {
+    background-position: 0, 0;
+  }
+  100% {
+    background-position: 100%, 100%;
+  }
+}
+@keyframes changedBg {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+*::-webkit-scrollbar {
+  background: rgba(0, 0, 0, 0.5);
+  width: 5px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(102, 102, 102, 0.5);
+}

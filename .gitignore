@@ -16,9 +16,6 @@ coverage
 
 /cypress/videos/
 /cypress/screenshots/
-/public/*
-/src/*
-/src/App.vue
 
 # Editor directories and files
 .vscode/*
