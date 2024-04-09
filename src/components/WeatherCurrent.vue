@@ -1,39 +1,107 @@
 <script setup>
-  import { ref } from 'vue';
+import { ref, watch } from 'vue'
+import IconArrow from '@/img/IconArrow.vue'
+import state from './store.js'
+import { ExtraData } from './extraData'
+import { unitsObject } from './main'
+import { main } from './main'
+import { loadBG } from './background'
 
-  const timeseries = ref([]);
-  const units = ref([]);
-  async function getData() {
-    const res = await fetch("https://api.met.no/weatherapi/locationforecast/2.0/complete?lat=49.822&lon=19.04");
-    const finalRes = await res.json();
-    finalRes.properties.meta.units.air_temperature = "℃"
-    console.log(finalRes);
-    timeseries.value = finalRes.properties.timeseries[0].data.instant.details;
-    units.value = finalRes.properties.meta.units;
+const timeseries = ref([])
+
+function load(result) {
+  if (result !== 'none') {
+    timeseries.value = main(result, 'current').current
+    loadBG(timeseries.value)
   }
+}
 
- getData()
+watch(
+  [state.data],
+  () => {
+    if (state.data.value.length !== 0) {
+      load(state.data.value)
+    }
+  },
+  { immediate: true }
+)
 </script>
 
 <template>
-  <div>
-    <b>{{timeseries.air_pressure_at_sea_level + ' ' + units.air_pressure_at_sea_level}} </b>
-    <b>{{timeseries.air_temperature + ' ' + units.air_temperature}} </b>
-    <b>{{timeseries.cloud_area_fraction + ' ' + units.cloud_area_fraction}} </b>
-    <b>{{timeseries.cloud_area_fraction_high + ' ' + units.cloud_area_fraction_high}} </b>
-    <b>{{timeseries.cloud_area_fraction_low + ' ' + units.cloud_area_fraction_low}} </b>
-    <b>{{timeseries.cloud_area_fraction_medium + ' ' + units.cloud_area_fraction_medium}} </b>
-    <b>{{timeseries.dew_point_temperature + ' ' + units.dew_point_temperature}} </b>
-    <b>{{timeseries.fog_area_fraction + ' ' + units.fog_area_fraction}} </b>
-    <b>{{timeseries.relative_humidity + ' ' + units.relative_humidity}} </b>
-    <b>{{timeseries.ultraviolet_index_clear_sky + ' ' + units.ultraviolet_index_clear_sky}} </b>
-    <b>{{timeseries.wind_from_direction + ' ' + units.wind_from_direction}} </b>
-    <b>{{timeseries.wind_speed + ' ' + units.wind_speed}} </b>
+  <div
+    class="current weather-container"
+    :class="timeseries.icon ? '' : 'blur'"
+    @click="ExtraData(timeseries, unitsObject)"
+  >
+    <img
+      class="icon"
+      :src="'./img/icons/weather/svg/' + timeseries.icon + '.svg'"
+      :alt="'weather current ' + timeseries.icon"
+      width="50px"
+      height="50px"
+    />
+    <h2 class="temp">
+      {{ timeseries ? timeseries.temperature : 'Loading... ' }}
+      <p>{{ unitsObject.temperature }}</p>
+    </h2>
+    <b class="pressure">
+      {{ timeseries ? timeseries.pressure : 'Loading... ' }}
+      <p>{{ unitsObject.pressure }}</p>
+    </b>
+    <div class="precipitation">
+      <b>{{ timeseries ? timeseries.precipitation + ' ' : 'Loading... ' }}</b>
+      <p>{{ unitsObject.precipitation }}</p>
+    </div>
+    <div class="wind">
+      <b>{{ timeseries && timeseries.wind ? timeseries.wind.speed + ' ' : 'Loading... ' }}</b>
+      <p>{{ unitsObject.wind.speed }}</p>
+      <IconArrow
+        :style="{
+          rotate:
+            timeseries && timeseries.wind
+              ? timeseries.wind.direction + unitsObject.wind.direction
+              : '0deg'
+        }"
+      />
+    </div>
   </div>
 </template>
 
-<style scoped>
- div {
-  background-color: red;
- }
+<style scoped lang="less">
+div.current {
+  display: grid;
+  grid-template: repeat(4, max-content) / 50% 50%;
+  place-items: center;
+  height: 100%;
+
+  div.current > b {
+    grid-row: 2/3;
+  }
+  & > * {
+    display: ruby;
+  }
+  div,
+  h2,
+  b {
+    display: flex;
+  }
+  * {
+    text-align: center;
+    place-self: center;
+  }
+  .pressure {
+    grid-column: 1/3;
+    grid-row: 4/4;
+  }
+  .precipitation {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    display: ruby;
+  }
+  .wind {
+    grid-column: 2/3;
+    grid-row: 3/3;
+  }
+}
 </style>
+./main.js./main.js
