@@ -26,6 +26,7 @@ function ObjectData(data: CurrentObject) {
 function getCurrentData(timeseries) {
   const hoursNow = new Date().getHours() < 10 ? '0' + new Date().getHours() : new Date().getHours()
   const dayNow = new Date().getDay() < 10 ? '0' + new Date().getDay() : new Date().getDay()
+  const MonthNow = new Date().getMonth() < 10 ? '0' + new Date().getMonth() : new Date().getMonth()
   const weatherDetails = []
   const weatherIcon = []
   const weatherTime = []
@@ -39,11 +40,17 @@ function getCurrentData(timeseries) {
       new Date(time).getUTCDay() < 10
         ? '0' + new Date(time).getUTCDay()
         : new Date(time).getUTCDay()
-    if (Number(dayNow) === Number(dayObject)) {
-      if (Number(hoursNow) === Number(hourObject)) {
-        weatherTime.push(data?.time)
-        weatherDetails.push(data?.data.instant.details)
-        weatherIcon.push(timeseries[index - 1]?.data)
+    const MonthObject =
+      new Date(time).getUTCMonth() < 10
+        ? '0' + new Date(time).getUTCMonth()
+        : new Date(time).getUTCMonth()
+    if (Number(MonthNow) === Number(MonthObject)) {
+      if (Number(dayNow) === Number(dayObject)) {
+        if (Number(hoursNow) === Number(hourObject)) {
+          weatherTime.push(data?.time)
+          weatherDetails.push(data?.data.instant.details)
+          weatherIcon.push(timeseries[index - 1]?.data)
+        }
       }
     }
   })

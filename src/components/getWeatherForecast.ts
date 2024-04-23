@@ -68,12 +68,16 @@ function shortWeather(results: unknown) {
       'Sobota'
     ]
     const dayNow = new Date().getDate() < 10 ? '0' + new Date().getDate() : new Date().getDate()
+    const MonthNow =
+      new Date().getMonth() < 10 ? '0' + new Date().getMonth() : new Date().getMonth()
     result.forEach((dayResult) => {
       const hourObject = dayResult?.time.substring(11, 13)
       const dayObject = dayResult?.time.substring(8, 10)
-
-      if (Number(dayObject) < Number(dayNow)) {
-        /* empty */
+      const MonthObject = dayResult?.time.substring(5, 7)
+      if (Number(MonthObject) < Number(MonthNow)) {
+        if (Number(dayObject) < Number(dayNow)) {
+          /* empty */
+        }
       } else {
         const tempMax = dayResult?.data.next_6_hours?.details.air_temperature_max
         const tempMin = dayResult?.data.next_6_hours?.details.air_temperature_min
