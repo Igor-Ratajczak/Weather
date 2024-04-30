@@ -2,6 +2,7 @@ interface CurrentObject {
   time?: string
   icon?: string
   temperature?: number
+  temperature_feels_like?: number
   pressure?: number
   precipitation?: number
   cloud?: {
@@ -29,6 +30,7 @@ function getCurrentData(timeseries) {
   const MonthNow = new Date().getMonth() < 10 ? '0' + new Date().getMonth() : new Date().getMonth()
   const weatherDetails = []
   const weatherIcon = []
+  let temperature_feels_like
   const weatherTime = []
   timeseries.forEach((data, index) => {
     const time = data?.time
@@ -49,18 +51,44 @@ function getCurrentData(timeseries) {
         if (Number(hoursNow) === Number(hourObject)) {
           weatherTime.push(data?.time)
           weatherDetails.push(data?.data.instant.details)
+          const temp = data?.data.instant.details.air_temperature
+          const humidity = data?.data.instant.details.relative_humidity
+          const wind = Number(data?.data.instant.details.wind_speed) * 3.6
+          if (temp > 26 && humidity > 40) {
+            temperature_feels_like =
+              -8.784695 +
+              1.61139411 * temp +
+              2.338549 * humidity -
+              0.14611605 * temp * humidity -
+              0.012308094 * Math.pow(temp, 2) -
+              0.016424828 * Math.pow(humidity, 2) +
+              0.002211732 * Math.pow(temp, 2) * humidity +
+              0.00072546 * temp * Math.pow(humidity, 2) -
+              0.000003582 * Math.pow(temp, 2) * Math.pow(humidity, 2)
+          } else if (temp < 10 && wind > 5) {
+            temperature_feels_like =
+              13.12 +
+              0.6215 * temp -
+              11.37 * Math.pow(wind, 0.16) +
+              0.3965 * temp * Math.pow(wind, 0.16)
+          } else {
+            temperature_feels_like = data?.data.instant.details.air_temperature
+          }
+          temperature_feels_like = temperature_feels_like.toFixed(1)
+
           weatherIcon.push(timeseries[index - 1]?.data)
         }
       }
     }
   })
-  return { weatherDetails, weatherIcon, weatherTime }
+  return { weatherDetails, weatherIcon, temperature_feels_like, weatherTime }
 }
 export function currentWeather(result) {
   let data: CurrentObject
   const getData = getCurrentData(result?.timeseries)
   const weatherDetails = getData.weatherDetails[0]
   const weatherIcon = getData.weatherIcon[0]
+  const temperature_feels_like = getData.temperature_feels_like
   const time = getData.weatherTime[0]
 
   // eslint-disable-next-line prefer-const
@@ -68,6 +96,7 @@ export function currentWeather(result) {
     time: time,
     icon: weatherIcon.next_1_hours.summary.symbol_code,
     temperature: weatherDetails.air_temperature,
+    temperature_feels_like: temperature_feels_like,
     pressure: weatherDetails.air_pressure_at_sea_level,
     precipitation: weatherIcon.next_1_hours.details.precipitation_amount,
     cloud: {

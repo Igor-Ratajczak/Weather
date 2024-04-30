@@ -40,10 +40,19 @@ watch(
       width="50px"
       height="50px"
     />
-    <h2 class="temp">
-      {{ timeseries ? timeseries.temperature : 'Loading... ' }}
-      <p>{{ unitsObject.temperature }}</p>
-    </h2>
+    <div class="temperature_container">
+      <h2 class="temp">
+        {{ timeseries ? timeseries.temperature : 'Loading... ' }}
+        <p>{{ unitsObject.temperature }}</p>
+      </h2>
+      <h3 class="temp_feels_like">
+        <div>
+          <b>{{ timeseries ? timeseries.temperature_feels_like : 'Loading... ' }}</b>
+          <p>{{ unitsObject.temperature }}</p>
+        </div>
+        <p class="info">Temperatura odczuwalna</p>
+      </h3>
+    </div>
     <b class="pressure">
       {{ timeseries ? timeseries.pressure : 'Loading... ' }}
       <p>{{ unitsObject.pressure }}</p>
@@ -88,6 +97,20 @@ div.current {
   * {
     text-align: center;
     place-self: center;
+  }
+  .temperature_container {
+    display: flex;
+    gap: 2em;
+    .temp {
+      display: flex;
+    }
+    .temp_feels_like {
+      display: flex;
+      flex-direction: column;
+      p.info {
+        font-size: 15px;
+      }
+    }
   }
   .pressure {
     grid-column: 1/3;

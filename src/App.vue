@@ -155,8 +155,8 @@ if (localStorage.getItem('theme') === 'theme-dark') {
     </div>
   </main>
   <footer>
-    <div class="weather-container">
-      <b>Dane pogodowe pochodzą z Norweskiego Instytutu Meterologicznego.</b>
+    <div class="weather-container" tabindex="0">
+      <b>Dane pogodowe pochodzą z Norweskiego Instytutu Meteorologicznego</b>
       <p>
         {{
           'Copyright &copy; 2024-' +
