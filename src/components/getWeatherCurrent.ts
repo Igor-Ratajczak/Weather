@@ -26,7 +26,7 @@ function ObjectData(data: CurrentObject) {
 }
 function getCurrentData(timeseries) {
   const hoursNow = new Date().getHours() < 10 ? '0' + new Date().getHours() : new Date().getHours()
-  const dayNow = new Date().getDay() < 10 ? '0' + new Date().getDay() : new Date().getDay()
+  const dayNow = new Date().getDate() < 10 ? '0' + new Date().getDate() : new Date().getDate()
   const MonthNow = new Date().getMonth() < 10 ? '0' + new Date().getMonth() : new Date().getMonth()
   const weatherDetails = []
   const weatherIcon = []
@@ -39,9 +39,9 @@ function getCurrentData(timeseries) {
         ? '0' + new Date(time).getUTCHours()
         : new Date(time).getUTCHours()
     const dayObject =
-      new Date(time).getUTCDay() < 10
-        ? '0' + new Date(time).getUTCDay()
-        : new Date(time).getUTCDay()
+      new Date(time).getUTCDate() < 10
+        ? '0' + new Date(time).getUTCDate()
+        : new Date(time).getUTCDate()
     const MonthObject =
       new Date(time).getUTCMonth() < 10
         ? '0' + new Date(time).getUTCMonth()
@@ -54,7 +54,9 @@ function getCurrentData(timeseries) {
           const temp = data?.data.instant.details.air_temperature
           const humidity = data?.data.instant.details.relative_humidity
           const wind = Number(data?.data.instant.details.wind_speed) * 3.6
+
           if (temp > 26 && humidity > 40) {
+            console.log(temperature_feels_like)
             temperature_feels_like =
               -8.784695 +
               1.61139411 * temp +
@@ -74,8 +76,8 @@ function getCurrentData(timeseries) {
           } else {
             temperature_feels_like = data?.data.instant.details.air_temperature
           }
-          temperature_feels_like = temperature_feels_like.toFixed(1)
 
+          temperature_feels_like = temperature_feels_like.toFixed(1)
           weatherIcon.push(timeseries[index - 1]?.data)
         }
       }
