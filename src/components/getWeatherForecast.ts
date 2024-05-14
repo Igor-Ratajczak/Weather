@@ -16,12 +16,12 @@ function groupedByDate(timeseries) {
     return acc
   }, {})
 }
-function compareTempertures(a, b) {
+function compareTemperatures(a, b) {
   return a - b
 }
 function temp(data) {
-  data.temperature_max.sort(compareTempertures)
-  data.temperature_min.sort(compareTempertures)
+  data.temperature_max.sort(compareTemperatures)
+  data.temperature_min.sort(compareTemperatures)
 
   const max = data.temperature_max[data.temperature_max.length - 1]
   const min = data.temperature_min[0]
@@ -29,8 +29,8 @@ function temp(data) {
   return { max, min }
 }
 function precipitation(data) {
-  data.precipitation_max.sort(compareTempertures)
-  data.precipitation_min.sort(compareTempertures)
+  data.precipitation_max.sort(compareTemperatures)
+  data.precipitation_min.sort(compareTemperatures)
 
   const max = data.precipitation_max[data.precipitation_max.length - 1]
   const min = data.precipitation_min[0]
@@ -68,33 +68,28 @@ function shortWeather(results: unknown) {
       'Sobota'
     ]
     const dayNow = new Date().getDate() < 10 ? '0' + new Date().getDate() : new Date().getDate()
-    const MonthNow =
-      new Date().getMonth() < 10 ? '0' + new Date().getMonth() : new Date().getMonth()
+    const HourNow = new Date().getHours() < 10 ? '0' + new Date().getHours() : new Date().getHours()
     result.forEach((dayResult) => {
       const hourObject = dayResult?.time.substring(11, 13)
       const dayObject = dayResult?.time.substring(8, 10)
-      const MonthObject = dayResult?.time.substring(5, 7)
-      if (Number(MonthObject) < Number(MonthNow)) {
-        if (Number(dayObject) < Number(dayNow)) {
-          /* empty */
-        }
+      if (Number(hourObject) <= Number(HourNow) && Number(dayObject) === Number(dayNow)) {
+        /* empty */
       } else {
-        const tempMax = dayResult?.data.next_6_hours?.details.air_temperature_max
-        const tempMin = dayResult?.data.next_6_hours?.details.air_temperature_min
-        if (['00', '06', '12', '18'].includes(String(hourObject))) {
-          if (tempMax !== undefined) {
-            temp_max_min.temperature_max.push(tempMax)
-            precipitation_max_min.precipitation_max.push(
-              dayResult?.data.next_6_hours?.details?.precipitation_amount
-            )
+        const tempValue = dayResult?.data.instant?.details.air_temperature
+        const precipitation = dayResult?.data.next_6_hours?.details?.precipitation_amount
+        console.log(tempValue, dayResult?.time)
+
+        if (String(['00 06 12 18']).includes(hourObject)) {
+          if (precipitation !== undefined) {
+            precipitation_max_min.precipitation_max.push(precipitation)
           }
-          if (tempMin !== undefined) {
-            temp_max_min.temperature_min.push(tempMin)
-            precipitation_max_min.precipitation_min.push(
-              dayResult?.data.next_6_hours?.details?.precipitation_amount
-            )
+          if (precipitation !== undefined) {
+            precipitation_max_min.precipitation_min.push(precipitation)
           }
         }
+        temp_max_min.temperature_max.push(tempValue)
+        temp_max_min.temperature_min.push(tempValue)
+
         const time_day = dayResult.time.substring(8, 10)
         if (Number(time_day) === Number(time_now)) {
           day.time = 'Dziś'
@@ -127,6 +122,8 @@ function shortWeather(results: unknown) {
     })
     day.temperature_max += temp(temp_max_min).max
     day.temperature_min += temp(temp_max_min).min
+    // console.log(temp_max_min, day)
+
     day.precipitation_max += precipitation(precipitation_max_min).max
     day.precipitation_min += precipitation(precipitation_max_min).min
     shortWeather.push(day)
