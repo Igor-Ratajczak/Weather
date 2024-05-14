@@ -1,1 +1,0 @@
-if('serviceWorker' in navigator) navigator.serviceWorker.register('/Weather/dev-sw.js?dev-sw', { scope: '/Weather/', type: 'classic' })
