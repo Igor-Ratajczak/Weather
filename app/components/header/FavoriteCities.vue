@@ -44,19 +44,25 @@ watch(
   position: relative;
 
   div.list-favorite-cites {
-    position: absolute;
-    top: 100%;
+    position: fixed;
     right: 50%;
     background: light-dark(white, black);
-    border-radius: 5px;
-    padding: 2em;
+    border-radius: 15px;
+    padding: 1em;
     width: max-content;
     height: max-content;
-    font-size: 25px;
-    display: flex;
+    font-size: 1.5em;
+    display: grid;
     transform: translateX(50%);
     gap: 2em;
+    max-width: 100vw;
     cursor: pointer;
+    text-align: center;
+
+    @media (min-width: 1500px) {
+      position: absolute;
+      font-size: 1.8em;
+    }
   }
 }
 </style>
