@@ -1,6 +1,6 @@
 export async function getWeatherAPI(city: City): Promise<WeatherFeature> {
   const weatherState = useWeatherState().value;
-
+  console.log(weatherState.cityChange);
   if (weatherState.weather && weatherState.updatedAt && !weatherState.cityChange) {
     const lastUpdate = new Date(weatherState.updatedAt);
     lastUpdate.setHours(lastUpdate.getHours() + 1);

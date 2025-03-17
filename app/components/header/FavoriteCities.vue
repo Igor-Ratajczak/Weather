@@ -4,6 +4,7 @@ const favoriteCites = ref(weatherState.favoriteCities);
 const showFavorite = ref(false);
 const favoriteRef = useTemplateRef('favorite');
 const setFavoriteCity = (city: FavoriteCities) => {
+  weatherState.cityChange = true;
   weatherState.city.id = city.properties.osm_id;
   weatherState.city.name = city.properties.display_name;
   weatherState.city.latitude = city.geometry.coordinates[0];

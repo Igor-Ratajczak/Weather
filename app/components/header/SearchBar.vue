@@ -35,11 +35,12 @@ const searchLocation = async () => {
 };
 
 const changeLocation = (item: LocationFeature | FavoriteCities) => {
+  weatherState.cityChange = true;
+  weatherState.city.id = item.properties.osm_id;
   weatherState.city.name = item.properties.display_name;
   weatherState.city.latitude = item.geometry.coordinates[1];
   weatherState.city.longitude = item.geometry.coordinates[0];
   search.value = false;
-  weatherState.cityChange = true;
   setCityCache(item);
 };
 
