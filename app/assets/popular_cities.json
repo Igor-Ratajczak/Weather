@@ -1,0 +1,41 @@
+[
+  {
+    "properties": {
+      "osm_id": -10,
+      "display_name": "Warszawa"
+    },
+    "geometry": {
+      "coordinates": [
+        21.0122,
+        52.2297
+      ]
+    },
+    "clicked": 1
+  },
+  {
+    "properties": {
+      "osm_id": -9,
+      "display_name": "Kraków"
+    },
+    "geometry": {
+      "coordinates": [
+        19.9450,
+        50.0647
+      ]
+    },
+    "clicked": 1
+  },
+  {
+    "properties": {
+      "osm_id": -8,
+      "display_name": "Gdańsk"
+    },
+    "geometry": {
+      "coordinates": [
+        18.6466,
+        54.3520
+      ]
+    },
+    "clicked": 1
+  }
+]
