@@ -64,6 +64,17 @@ onMounted(() => {
 watch(weatherState.city, () => {
   initializeWeather();
 });
+
+watch(
+  weatherState,
+  (newValue) => {
+    const stateToSave = { ...newValue, cityCache: Object.fromEntries(newValue.cityCache) };
+    requestAnimationFrame(() => {
+      localStorage.setItem('weather_userState', JSON.stringify(stateToSave));
+    });
+  },
+  { deep: true }
+);
 </script>
 
 <style lang="less">

@@ -15,18 +15,17 @@ const searchLocation = async () => {
     } else {
       try {
         const url = `https://nominatim.openstreetmap.org/search?q=${query.value}&format=geojson`;
-        const response = await $fetch(url);
-        const searchData = response as LocationData;
+        await $fetch(url).then((res) => {
+          const searchData = res as LocationData;
 
-        if (searchData.features) {
-          hints.value = searchData.features;
-          weatherState.searchCount++;
-          if (weatherState.searchCount + 1 === 5) {
-            weatherState.searchLimitResetDate = new Date().getTime();
+          if (searchData.features) {
+            hints.value = searchData.features;
+            weatherState.searchCount++;
+            if (weatherState.searchCount + 1 === 5) {
+              weatherState.searchLimitResetDate = new Date().getTime();
+            }
           }
-        } else {
-          hints.value = showPopularCities();
-        }
+        });
       } catch (error) {
         console.error('Błąd podczas wyszukiwania:', error);
         hints.value = showPopularCities();
@@ -51,6 +50,7 @@ window.addEventListener('click', (e: MouseEvent) => {
 });
 
 function openSearch() {
+  console.log('openSearch');
   search.value = true;
   hints.value = showPopularCities();
 }

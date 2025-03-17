@@ -13,7 +13,7 @@ interface WeatherState {
 }
 
 export const useWeatherState = (): Ref<WeatherState> => {
-  const state = useState('weatherState', () => {
+  return useState('weatherState', () => {
     // Default state
     const defaultState = {
       theme: null,
@@ -51,18 +51,4 @@ export const useWeatherState = (): Ref<WeatherState> => {
 
     return defaultState;
   });
-
-  // Watch for changes and update localStorage
-  if (import.meta.client) {
-    watch(
-      state,
-      (newValue) => {
-        newValue.cityCache = Array.from(newValue.cityCache);
-        localStorage.setItem('weather_userState', JSON.stringify(newValue));
-      },
-      { deep: true }
-    );
-  }
-
-  return state;
 };
