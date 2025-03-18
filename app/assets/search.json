@@ -1,0 +1,286 @@
+{
+  "type": "FeatureCollection",
+  "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "place_id": 133923717,
+        "osm_type": "node",
+        "osm_id": 412989086,
+        "place_rank": 19,
+        "category": "place",
+        "type": "village",
+        "importance": 0.341050929727399,
+        "addresstype": "village",
+        "name": "Bielsko",
+        "display_name": "Bielsko, gmina Międzychód, powiat międzychodzki, województwo wielkopolskie, 64-400, Polska"
+      },
+      "bbox": [
+        15.9028416,
+        52.587327,
+        15.9428416,
+        52.627327
+      ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.9228416,
+          52.607327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_id": 163361790,
+        "osm_type": "node",
+        "osm_id": 31347632,
+        "place_rank": 19,
+        "category": "place",
+        "type": "village",
+        "importance": 0.31291714714299,
+        "addresstype": "village",
+        "name": "Bielsko",
+        "display_name": "Bielsko, gmina Koczała, powiat człuchowski, województwo pomorskie, Polska"
+      },
+      "bbox": [
+        17.0995127,
+        53.8477233,
+        17.1395127,
+        53.8877233
+      ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.1195127,
+          53.8677233
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_id": 162506849,
+        "osm_type": "node",
+        "osm_id": 692625130,
+        "place_rank": 19,
+        "category": "place",
+        "type": "village",
+        "importance": 0.30372703277162,
+        "addresstype": "village",
+        "name": "Bielsko",
+        "display_name": "Bielsko, gmina Orchowo, powiat słupecki, województwo wielkopolskie, 62-436, Polska"
+      },
+      "bbox": [
+        18.0631634,
+        52.5153485,
+        18.1031634,
+        52.5553485
+      ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.0831634,
+          52.5353485
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_id": 167801749,
+        "osm_type": "relation",
+        "osm_id": 7669679,
+        "place_rank": 16,
+        "category": "boundary",
+        "type": "administrative",
+        "importance": 0.292316417126696,
+        "addresstype": "village",
+        "name": "Bielsko",
+        "display_name": "Bielsko, gmina Karczmiska, powiat opolski, województwo lubelskie, Polska"
+      },
+      "bbox": [
+        21.9387064,
+        51.1884045,
+        21.980266,
+        51.203585
+      ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.9608645,
+          51.1945285
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_id": 163240685,
+        "osm_type": "node",
+        "osm_id": 3009671823,
+        "place_rank": 20,
+        "category": "place",
+        "type": "hamlet",
+        "importance": 0.133383621728847,
+        "addresstype": "hamlet",
+        "name": "Bielsko",
+        "display_name": "Bielsko, Mężyk, gmina Wieleń, powiat czarnkowsko-trzcianecki, województwo wielkopolskie, 64-735, Polska"
+      },
+      "bbox": [
+        16.2083333,
+        52.795,
+        16.2483333,
+        52.835
+      ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          16.2283333,
+          52.815
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_id": 162874542,
+        "osm_type": "way",
+        "osm_id": 174449440,
+        "place_rank": 22,
+        "category": "natural",
+        "type": "water",
+        "importance": 0.106716335545891,
+        "addresstype": "water",
+        "name": "Bielsko",
+        "display_name": "Bielsko, Wersk, gmina Zakrzewo, powiat złotowski, województwo wielkopolskie, 77-424, Polska"
+      },
+      "bbox": [
+        17.2613611,
+        53.4054604,
+        17.2700416,
+        53.4092624
+      ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2650599155048,
+          53.4072932
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_id": 171653388,
+        "osm_type": "relation",
+        "osm_id": 545474,
+        "place_rank": 12,
+        "category": "boundary",
+        "type": "administrative",
+        "importance": 0.597927370863016,
+        "addresstype": "city",
+        "name": "Bielsko-Biała",
+        "display_name": "Bielsko-Biała, województwo śląskie, Polska"
+      },
+      "bbox": [
+        18.9453771,
+        49.7366826,
+        19.1321826,
+        49.8874404
+      ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.0448936,
+          49.822118
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_id": 171199445,
+        "osm_type": "relation",
+        "osm_id": 2425988,
+        "place_rank": 16,
+        "category": "boundary",
+        "type": "administrative",
+        "importance": 0.597927370863016,
+        "addresstype": "administrative",
+        "name": "Bielsko-Biała",
+        "display_name": "Bielsko-Biała, województwo śląskie, Polska"
+      },
+      "bbox": [
+        18.9453771,
+        49.7366826,
+        19.1321826,
+        49.8874404
+      ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          19.0291988020139,
+          49.81207845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_id": 165381685,
+        "osm_type": "relation",
+        "osm_id": 2803335,
+        "place_rank": 12,
+        "category": "boundary",
+        "type": "administrative",
+        "importance": 0.509336432871116,
+        "addresstype": "county",
+        "name": "powiat bielski",
+        "display_name": "powiat bielski, województwo podlaskie, Polska"
+      },
+      "bbox": [
+        22.6114319,
+        52.565896,
+        23.4024831,
+        52.926686
+      ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.0043871050388,
+          52.7461046
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "place_id": 390640990,
+        "osm_type": "relation",
+        "osm_id": 2415787,
+        "place_rank": 12,
+        "category": "boundary",
+        "type": "administrative",
+        "importance": 0.490422747134238,
+        "addresstype": "county",
+        "name": "powiat bielski",
+        "display_name": "powiat bielski, województwo śląskie, Polska"
+      },
+      "bbox": [
+        18.8268246,
+        49.6528015,
+        19.3167844,
+        49.9589155
+      ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.9092751833101,
+          49.80586285
+        ]
+      }
+    }
+  ]
+}

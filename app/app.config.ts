@@ -1,0 +1,23 @@
+export default defineAppConfig({
+  weatherUnits: {
+    air_pressure_at_sea_level: 'hPa',
+    air_temperature: '℃',
+    air_temperature_max: '℃',
+    air_temperature_min: '℃',
+    cloud_area_fraction: '%',
+    cloud_area_fraction_high: '%',
+    cloud_area_fraction_low: '%',
+    cloud_area_fraction_medium: '%',
+    dew_point_temperature: '℃',
+    fog_area_fraction: '%',
+    precipitation_amount: 'mm',
+    relative_humidity: '%',
+    ultraviolet_index_clear_sky: '1',
+    wind_from_direction: 'degrees',
+    wind_speed: 'km/h',
+  },
+  weatherCurrent: null,
+  weatherForecast: [],
+  weatherDeprecated: false,
+  weatherExtraData: null,
+});
