@@ -5,6 +5,26 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
+  app: {
+    head: {
+      title: 'Weather 2.0',
+      meta: [
+        {
+          name: 'description',
+          content: 'Aplikacja pogodowa, która ułatwi tobie sprawdzanie prognozy w sposób szybki i poręczny.',
+        },
+        {
+          name: 'keywords',
+          content:
+            'pogoda, prognoza pogody, temperatura, deszcz, wiatr, burza, słońce, śnieg, prognoza, warunki pogodowe, ciśnienie, wilgotność, UV',
+        },
+      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: './favicon.ico' }],
+      htmlAttrs: {
+        lang: 'pl',
+      },
+    },
+  },
   ssr: false,
   modules: ['@vite-pwa/nuxt', '@vite-pwa/nuxt'],
   pwa: {
