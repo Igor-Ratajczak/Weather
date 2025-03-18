@@ -19,9 +19,9 @@ export const useWeatherState = (): Ref<WeatherState> => {
       theme: null,
       city: {
         id: 0,
-        name: 'Bielsko-Biała',
-        latitude: 49.82245,
-        longitude: 19.04686,
+        name: 'Wrocław',
+        latitude: 51.107883,
+        longitude: 17.038538,
         timeZone: 'Europe/Warsaw',
         clicked: 0,
       },
