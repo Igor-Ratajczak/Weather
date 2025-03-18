@@ -69,6 +69,7 @@ const showExtraData = (data: WeatherCurrentData) => {
       <img
         :src="IconArrow"
         alt="wind direction"
+        :class="weatherState.theme === 'dark' ? 'dark' : 'light'"
         :style="{
           rotate: weatherCurrent.windDirection + 'deg',
         }"
@@ -176,6 +177,14 @@ div.current {
     img {
       width: 25px;
       height: 25px;
+
+      &.light {
+        filter: invert(0%) brightness(1);
+      }
+
+      &.dark {
+        filter: invert(100%) brightness(1);
+      }
     }
   }
 }

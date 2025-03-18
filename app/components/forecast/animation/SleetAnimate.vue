@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import rain from '/rain-1.webp';
-import snow from '/snow-1.webp';
+import rain from '/rain.webp';
+import snow from '/snow.webp';
 
 defineProps<{
   item: WeatherForecast;

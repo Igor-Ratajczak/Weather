@@ -51,7 +51,6 @@ window.addEventListener('click', (e: MouseEvent) => {
 });
 
 function openSearch() {
-  console.log('openSearch');
   search.value = true;
   hints.value = showPopularCities();
 }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import clouds from '/simplecloud.webp';
+import clouds from '/cloud.webp';
 
 defineProps<{
   item: WeatherForecast;
