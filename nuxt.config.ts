@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     strategies: 'generateSW',
     registerType: 'prompt',
     workbox: {
-      globPatterns: ['**/*.{html,js,css,ico,png,svg,webmanifest,json}'],
+      globPatterns: ['**/*.{html,js,css,ico,png,svg,webmanifest,json,webp}'],
       skipWaiting: false,
       clientsClaim: false,
       maximumFileSizeToCacheInBytes: 3 * 1024 * 1024,
