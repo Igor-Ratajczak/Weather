@@ -15,7 +15,7 @@
     "date-fns-tz": "^3.2.0",
     "luxon": "^3.5.0",
     "moment-timezone": "^0.5.47",
-    "nuxt": "^3.14.159",
+    "nuxt": "^3.19.0",
     "suncalc": "^1.9.0",
     "tz-lookup": "^6.1.25",
     "vue": "latest",
