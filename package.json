@@ -24,7 +24,7 @@
   "devDependencies": {
     "@nuxt/types": "^2.18.1",
     "@nuxtjs/eslint-module": "^4.1.0",
-    "@playwright/test": "^1.49.1",
+    "@playwright/test": "^1.56.1",
     "@types/luxon": "^3.4.2",
     "@types/node": "^22.10.5",
     "@types/suncalc": "^1.9.2",
